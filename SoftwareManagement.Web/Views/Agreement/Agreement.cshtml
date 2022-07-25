@@ -1,0 +1,121 @@
+﻿
+@model AgreementCreateRequest
+<partial name="_DatatableScripts" />
+
+
+
+<div class="container-fluid heading-table mt-1">
+
+    <div class="row">
+        <div class="col-sm-6 heading">
+            <div class="table-Title"><label>New Agreement</label></div>
+        </div>
+    </div>
+    <hr>
+    <form asp-action="CreateAgreement" asp-controller="Agreement" method="post">
+        <div class="row body-part mt-1">
+            <input type='text' class="form-control" id="txt_Id" asp-for="Id" hidden />
+            <div class="col-sm-4"><label>Product Group:</label></div>
+            <div class="col-sm-6">
+                <select id="dd_Group" class="form-select productGroup" aria-label="Default select example" required asp-for="ProductGroupId">
+                    <option value="0" selected>Select Group</option>
+                </select>
+                <small><span asp-validation-for="NewPrice" class="text-danger"></span></small>
+            </div>
+        </div>
+        <div class="row body-part mt-1">
+            <div class="col-sm-4"><label>Product<astrick>*</astrick>:</label></div>
+            <div class="col-sm-6">
+                <select id="dd_product" class="form-select product" aria-label="Default select example" required asp-for="ProductId">
+                    <option value="0" selected>Select product</option>
+                </select>
+                <small><span asp-validation-for="ProductId" class="text-danger"></span></small>
+            </div>
+        </div>
+        <div class="row body-part mt-1">
+            <div class="col-sm-4"><label>Effective Date:</label></div>
+            <div class="col-sm-6">
+                <input type='date' class="form-control" id="dp_EffectiveDate" asp-for="EffectiveDate" />
+                <small><span asp-validation-for="NewPrice" class="text-danger"></span></small>
+            </div>
+        </div>
+        <div class="row body-part mt-1">
+            <div class="col-sm-4"><label>Expiration Date:</label></div>
+            <div class="col-sm-6">
+                <input type='date' class="form-control" id="dp_ExpirationDate" asp-for="ExpirationDate" />
+                <small><span asp-validation-for="NewPrice" class="text-danger"></span></small>
+            </div>
+        </div>
+        <div class="row body-part mt-1">
+            <div class="col-sm-4"><label>New Price:</label></div>
+            <div class="col-sm-6">
+                <input type='text' class="form-control" id="txt_NewPrice" asp-for="NewPrice" />
+                <input type='text' class="form-control" id="txt_Price" asp-for="ProductPrice" hidden />
+                <small><span asp-validation-for="NewPrice" class="text-danger"></span></small>
+            </div>
+        </div>
+        <div class="row body-part mt-1">
+            <div class="col-sm-4"><label>Is Active:</label></div>
+            <div class="col-sm-6">
+                <input type="checkbox" id="chkIsActive" asp-for="IsActive"  class="form-control isActiveCheckBox">
+            </div>
+        </div>
+
+        <div class="row save-cancel-buttons mt-2">
+            <div class="col-sm-12">
+                <button class="btn btn-info save btnSave">Save</button>
+                <a href="@Url.Action("Index", "Agreement")" class="btn btn-danger">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    $(document).ready(function () {
+
+        LoadGroup();
+        LoadProductByGroupId($('#dd_Group option:selected').val());
+
+    });
+
+    function LoadGroup() {
+        $.get('@Url.Action("GetProductGroup", "Agreement")', function (data) {
+            $('.productGroup').html('');
+            $('.productGroup').append('<option value="0" selected>--- Select ---</option>');
+            for (var index = 0; index < data.length; index++) {
+                $('.productGroup').append('<option value="' + data[index].value + '">' + data[index].text + '</option>');
+            }
+            var groupId = @Model.ProductGroupId;
+            $(".productGroup").val(groupId);
+        });
+    }
+
+    function LoadProductByGroupId(groupId) {
+        debugger
+        $.get('@Url.Action("GetProduct", "Agreement")' + '?groupId=' + groupId, function (data) {
+            $('.product').html('');
+            $('.product').append('<option value="0" selected>--- Select ---</option>');
+            for (var index = 0; index < data.length; index++) {
+                $('.product').append('<option value="' + data[index].value + '">' + data[index].text + '</option>');
+            }
+            var productId = @Model.ProductId;
+            $(".product").val(productId);
+        });
+    }
+
+
+    $('#dd_Group').change(function () {
+        var groupId = $('#dd_Group option:selected').val();
+        LoadProductByGroupId(groupId);
+    });
+
+    $('#dd_product').change(function () {
+        var productId = $('#dd_product option:selected').val();
+        $.get('@Url.Action("GetProductPrice", "Agreement")' + '?productId=' + productId, function (data) {
+            $('#txt_Price').val(data);
+        });
+    });
+
+
+
+
+</script>

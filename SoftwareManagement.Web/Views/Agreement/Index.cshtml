@@ -1,0 +1,115 @@
+﻿@using SoftwareManagement.Application.DTOs.Response.Account
+@model List<AgreementResponse>
+<partial name="_DatatableScripts" />
+
+<div class="container-fluid heading-table mt-1">
+    <div class="row">
+        <div class="col-sm-6 heading">
+            <div class="table-Title"><label>Agreement management</label></div>
+        </div>
+
+        <div class="col-sm-6 heading text-right">
+            <div class="">
+                <button class="btn btn-info" onclick="location.href='@Url.Action("Agreement", "Agreement")'"><i class="material-icons">add</i>New Agreement</button>
+            
+            </div>
+        </div>
+    </div><hr>
+    <table id="agreementTable" class="table table-striped table-bordered dt-responsive compact nowrap erpDatatable agreementTable" width="100%" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Sr No</th>
+                <th>User Name</th>
+                <th>Product Group Code</th>
+                <th>Product Number</th>
+                <th>Effective Date</th>
+                <th>Expiration Date</th>
+                <th>Product Price</th>
+                <th>New Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int i = 1;
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td width="20px">@i.ToString()</td>
+                        <td> @item.UserName</td>
+                        <td>
+                            @item.GroupCode
+                        </td>
+
+                        <td>
+                            @item.ProductNumber
+                        </td>
+                        <td> @item.EffectiveDate.ToString("MMM-dd-yyyy")</td>
+                        <td> @item.ExpirationDate.ToString("MMM-dd-yyyy")</td>
+                        <td>@item.ProductPrice</td>
+                        <td>@item.NewPrice</td>
+                        <td>
+                            <i class="fa fa-pencil  material-icons  btnEdit" data-ID="@item.Id" aria-hidden="true" onclick="location.href='@Url.Action("Edit", "Agreement",new {Id =item.Id})'"></i>
+                            <i class='material-icons erpDatatable-deleteIcon btnDelete' data-objId="@item.Id" aria-hidden="true">delete</i>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Delete Modal -->
+<div class="modal" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header deleteHeader">
+                <button type="button" class="close simplemodal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="mdeleteModalLabel"><label></label></h4>
+            </div>
+            <div class="modal-body deleteBody">
+                <div class="deleteContent">
+                    <i class="material-icons" id="closeIcon">close</i>
+                </div>
+                <div class="deleteContentLabel">Are You Sure?</div>
+                <div class="deleteContent">Do you really want to delete these records? </div>
+            </div>
+            <div class="modal-footer footerButtons">
+                <input id="deleteid" type="hidden" />
+                <button class="btn btn-danger" onclick='Delete()'>Delete</button>
+                <button class=" btn btn-secondary buttons recurrence-cancel simplemodal-close" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        table = $(".agreementTable").DataTable({
+        });
+
+        $(document).on("click", ".btnDelete", function () {
+            var deleteId = $(this).attr("data-objId");
+            DeleteEnquiry(deleteId);
+        });
+
+
+    });
+
+    function DeleteEnquiry(Id) {
+        var deleteid = Id;
+        $('#deleteid').val(Id);
+        $("#deleteModal").modal('show');
+    }
+
+    function Delete() {
+        var url = "@Url.Action("DeleteAgreement", "Agreement")";
+        var deleteid = $('#deleteid').val();
+        $.post(url, { ID: deleteid }, function (data) {
+            $("#deleteModal").modal('hide');
+            location.reload();
+        });
+    }
+
+</script>

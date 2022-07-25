@@ -1,0 +1,259 @@
+html {
+    box-sizing: border-box;
+}
+*,
+:after,
+:before {
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    height: 100%;
+}
+body {
+    color: #414a51;
+    height: 100%;
+    text-align: center;
+}
+h1 {
+    font-size: 7rem;
+    color: #fff;
+}
+.leftSection {
+    background: #1c568b;
+    height: 100vh;
+	padding-left:0px!important;
+}
+.aside {
+    height: 100vh;
+    text-align: left;
+    padding-left: 0 !important;
+}
+.login-container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-form-1 {
+    padding: 5%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3 {
+    text-align: center;
+    color: #333;
+}
+.login-form-2 {
+    padding: 5%;
+    background: #0062cc;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3 {
+    text-align: center;
+    color: #fff;
+}
+.login-container form {
+    padding: 10%;
+}
+.btnSubmit {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+}
+.login-form-1 .btnSubmit {
+    font-weight: 600;
+    color: #fff;
+    background-color: #0062cc;
+}
+.login-form {
+    text-align: left;
+    position: relative;
+    padding-left: 22%;
+    top: 18%;
+}
+.login-form input[type="password"],
+.login-form input[type="text"] {
+    height: 40px;
+	border-radius: 2px;
+    box-shadow: none;
+}
+.loginTable input[type="text"] {
+    height: 40px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+.btnSubmit {
+    background: #cf0b0f;
+    color: #fff;
+    width: 106px;
+    height: 40px;
+    border-radius: 2px;
+}
+#lblEmailId,
+#lblUsername {
+    margin-bottom: 8px;
+    display: inline-block;
+}
+.logo {
+    width: 40%;
+    position: relative;
+    top: 12%;
+    left: 19%;
+}
+.loginText {
+    position: relative;
+    bottom: 22px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #f2f4f8;
+}
+.modal-header .close {
+    margin-top: -2px;
+}
+.modal-dialog {
+    position: relative;
+    top: 25%;
+    width: 440px !important;
+}
+.modal-content {
+    text-align: left;
+}
+.modal-body {
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+}
+.modal-footer .buttons {
+    width: 106px;
+    height: 40px;
+}
+.modal-title {
+    margin-left: 12px !important;
+}
+.cancelBtn {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    position: relative;
+    right: 15px;
+}
+.resetBtn {
+    background: #cf0b0f;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #fff;
+}
+.ForgetPwd:hover {
+    text-decoration: none;
+}
+.ForgetPwd:focus,
+buttons:focus {
+    outline: 0;
+}
+.input-group-addon {
+    background: #1c568b !important;
+    color: #fff !important;
+	border:1px solid #1c568b;
+}
+.footer {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    background: #f2f4f8;
+	border-top: 1px solid #ddd;
+}
+.footer ul {
+    list-style: none;
+}
+.footer ul li {
+    float: left;
+    margin: 16px 18px;
+}
+.copyright,
+.footer-labels,
+.website {
+    position: relative;
+    bottom: 3px;
+    left: 4px;
+    display: inline-block;
+    color: #1c568b;
+}
+.footer i {
+    font-size: 16px !important;
+    color: #adadad;
+}
+.log-2 {
+    position: relative;
+    top: 8%;
+    height: 62%;
+    opacity: 0.4;
+}
+.logo-text {
+    position: relative;
+    top: 10%;
+    font-size: 38px;
+    color: #fff;
+    opacity: 0.8;
+    text-shadow: 0 5px 9px #000;
+}
+.leftSection hr {
+    position: relative;
+    top: 70px;
+}
+.forgotpass-Link {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-Section .footer li:after {
+    content: "";
+    border-right: 1px solid #1c568b;
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    padding-right: 25px;
+}
+
+.login-Section .footer li:last-child::after {
+    content: "";
+    border-right: 1px solid #1c568b;
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+    padding-right: 25px;
+}
+
+.ForgetPwd, .ForgetPwd:hover{
+	position: relative;
+    top: 10px;
+    text-decoration: underline;
+    color: #cf0b0f;
+}
+
+.footer-leftside{
+	background:#272727;
+	opacity:0.4;
+	width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-leftside ul li {
+    float: left;
+    margin: 16px 50px;
+}
+
+.footer-leftside li span{
+	position:relative;
+	bottom:6px;
+}
+
+.footer-leftside li i, .footer-leftside li span{
+	color:#fff;
+}

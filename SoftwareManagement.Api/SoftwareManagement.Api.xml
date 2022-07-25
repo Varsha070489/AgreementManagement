@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SoftwareManagement.Api</name>
+    </assembly>
+    <members>
+        <member name="M:SoftwareManagement.Api.Controllers.IdentityController.Authenticate(SoftwareManagement.Application.DTOs.Request.Account.AuthenticateRequest)">
+            <summary>
+            This action is used for authenticate user
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.IdentityController.Register(SoftwareManagement.Application.DTOs.Request.Account.RegisterRequest)">
+            <summary>
+            This action is used for register user
+            </summary>
+            <param name="registerRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.IdentityController.VerifyEmail(SoftwareManagement.Application.DTOs.Request.Account.VerifyEmailRequest)">
+            <summary>
+            This action is used for verifying new created user.
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.IdentityController.ForgotPassword(SoftwareManagement.Application.DTOs.Request.Account.ForgotPasswordRequest)">
+            <summary>
+            This action is used for forgot password
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.IdentityController.TestData(SoftwareManagement.Application.DTOs.Request.Account.ForgotPasswordRequest)">
+            <summary>
+            This action is temporary and used for checking authorization is working or not
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.IdentityController.GetRoles">
+            <summary>
+            This action is temporary and used for checking authorization is working or not
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.GetAll">
+            <summary>
+            Get all agreements
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.GetAllDts">
+            <summary>
+            Get all agreement with parameters
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.GetById(System.Int32)">
+            <summary>
+            Get agreement by agreement id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.Post(SoftwareManagement.Application.DTOs.Request.Account.AgreementCreateRequest)">
+            <summary>
+            Save agreement
+            </summary>
+            <param name="createRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.Update(SoftwareManagement.Application.DTOs.Request.Account.AgreementCreateRequest)">
+            <summary>
+            Update agreement
+            </summary>
+            <param name="createRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.Delete(SoftwareManagement.Application.DTOs.Request.Account.AgreementDeleteRequest)">
+            <summary>
+            Delete agreement
+            </summary>
+            <param name="deleteRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.GetAllProduct">
+            <summary>
+            Get all products
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.GetProductById(System.Int32)">
+            <summary>
+            Get product by product id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SoftwareManagement.Api.Controllers.v1.AgreementController.GetAllProductGroup">
+            <summary>
+            Get all product groups
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
